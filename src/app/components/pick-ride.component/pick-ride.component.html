@@ -1,0 +1,56 @@
+<section>
+  <h2>Pick a Ride</h2>
+
+  <label>Your Employee ID</label>
+  <input [(ngModel)]="bookingEmployeeId" placeholder="Enter your Employee ID" />
+
+  <div style="display:flex; gap:12px; margin-top:10px;">
+    <div style="flex:1">
+      <label>Vehicle Filter</label>
+      <select [(ngModel)]="filterVehicle">
+        <option value="">All</option>
+        <option value="Bike">Bike</option>
+        <option value="Car">Car</option>
+      </select>
+    </div>
+
+    <div style="flex:1">
+      <label>Filter Time (±60 mins)</label>
+      <input type="time" [(ngModel)]="filterTime" />
+    </div>
+  </div>
+
+  <table border="1" cellpadding="6" style="width:100%; margin-top:12px; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th>Owner</th>
+        <th>Type</th>
+        <th>Vehicle No</th>
+        <th>Vacant</th>
+        <th>Time</th>
+        <th>Pickup</th>
+        <th>Destination</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of getFiltered(); let i = index">
+        <td data-label="Owner">{{ r.employeeId }}</td>
+        <td data-label="Type">{{ r.vehicleType }}</td>
+        <td data-label="Vehicle No">{{ r.vehicleNo }}</td>
+        <td data-label="Vacant" style="text-align:center">{{ r.vacantSeats }}</td>
+        <td data-label="Time">{{ r.time }}</td>
+        <td data-label="Pickup">{{ r.pickupPoint }}</td>
+        <td data-label="Dest">{{ r.destination }}</td>
+        <td data-label="Action">
+  <button (click)="onBook(i)" [disabled]="r.vacantSeats === 0">Book</button>
+</td>
+      </tr>
+      <tr *ngIf="getFiltered().length === 0">
+        <td colspan="8" style="text-align:center; padding:12px;">No rides match filters.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="msg">{{ message }}</p>
+</section>

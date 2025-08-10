@@ -1,0 +1,32 @@
+<section>
+  <h2>Add a New Ride</h2>
+  <form (ngSubmit)="onSubmit()" #formRef="ngForm" novalidate>
+    <label>Employee ID *</label>
+    <input name="employeeId" [(ngModel)]="ride.employeeId" required />
+
+    <label>Vehicle Type *</label>
+    <select name="vehicleType" [(ngModel)]="ride.vehicleType" required>
+      <option value="Bike">Bike</option>
+      <option value="Car">Car</option>
+    </select>
+
+    <label>Vehicle No *</label>
+    <input name="vehicleNo" [(ngModel)]="ride.vehicleNo" required />
+
+    <label>Vacant Seats *</label>
+    <input type="number" name="vacantSeats" [(ngModel)]="ride.vacantSeats" min="1" required />
+
+    <label>Time (HH:mm) *</label>
+    <input type="time" name="time" [(ngModel)]="ride.time" required />
+
+    <label>Pick-up Point *</label>
+    <input name="pickupPoint" [(ngModel)]="ride.pickupPoint" required />
+
+    <label>Destination *</label>
+    <input name="destination" [(ngModel)]="ride.destination" required />
+
+    <button type="submit" [disabled]="formRef.invalid">Add Ride</button>
+  </form>
+
+  <p class="msg">{{ message }}</p>
+</section>
