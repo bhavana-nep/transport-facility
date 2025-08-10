@@ -1,4 +1,28 @@
-# TransportFacility
+# Transport Facility Management
+
+A web application that enables company employees to schedule, add, and book pick-up and drop-off rides provided by fellow employees — for the current day only.
+
+## Features
+
+- **Add New Ride**  
+  Employees can add rides with mandatory details: Employee ID, Vehicle Type (Bike or Car), Vehicle Number, Vacant Seats, Time, Pick-up Point, and Destination. Employee ID must be unique.
+
+- **View & Search Rides**  
+  List of available rides filtered by vehicle type and time (±60 minutes buffer).
+
+- **Book a Ride**  
+  Employees can book available rides by entering their Employee ID. The system updates vacant seats accordingly and prevents booking own rides or duplicate bookings.
+
+- **Validations**  
+  Ensures all required fields are provided and logical constraints like unique Employee IDs and booking rules.
+
+## Technology Stack
+
+- **Framework:** Angular (version 20)  
+- **Languages:** TypeScript, HTML, CSS  
+- **Unit Testing:Karma
+
+## Installation and Running
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
 
